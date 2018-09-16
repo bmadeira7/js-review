@@ -2,14 +2,17 @@
 
 // an array with all of the words I can guess
 var wordsToGuess = [
-    "jupiter",
-    "venus",
-    "mars",
-    "neptune",
-    "uranus",
-    "earth",
-    "mercury",
-    "saturn"
+    "vietcong",
+    "napalm",
+    "battalion",
+    "grenade",
+    "foxtrot",
+    "infantry",
+    "johnson",
+    "bandolier",
+    "firefight",
+    "communism"
+
 ];
 // keep track of all of the wins
 var wins = 0;
@@ -37,7 +40,9 @@ var start = function () {
     reset()
     getWord();
     writeToDom();
-
+    
+    
+    
 }
 var reset = function () {
     guesses = 10;
@@ -45,6 +50,21 @@ var reset = function () {
     currentWordLetterBlanks = [];
     lettersGuessed = [];
     correctGuesses = 0;
+    
+    
+    
+}
+var SuperReset = function () {
+    guesses = 10;
+    currentWordLetters = [];
+    currentWordLetterBlanks = [];
+    lettersGuessed = [];
+    correctGuesses = 0;
+    wins = 0;
+    losses = 0;
+    getWord();
+    
+
 
 
 }
@@ -101,17 +121,28 @@ var checkIfLetterWrong = function (letter) {
 }
 
 
-var checkIfLetterRight = function(letter) {
+var checkIfLetterRight = function (letter) {
     for (var i = 0; i < currentWord.length; i++) {
-        if(letter === currentWordLetters[i]){
+        if (letter === currentWordLetters[i]) {
             currentWordLetterBlanks[i] = letter;
             writeToDom();
             correctGuesses++;
-            if (correctGuesses === currentWordLetters.length){
+            if (correctGuesses === currentWordLetters.length) {
                 wins++;
+                resultsSpan.innerHTML = "YOU WIN!!!";
                 start();
             }
         }
     }
 }
+
 start();
+
+setTimeout(timeUp, 1000 * 60);
+
+function timeUp() {
+    
+    
+    $("#time-left").append("<h1>Time's Up!</h1>");
+    SuperReset();
+    }

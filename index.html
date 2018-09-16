@@ -1,19 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Word Guessing Game</title>
+    <title>Guessing Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <style>
+        .results {
+            font-size: 40px;
+            color: brown;
+            font-family: monospace;
+        }
+
+        .jumbotron {
+            background-color: olivedrab;
+            opacity: 0.8;
+            height: 320px;
+            width: 100%;
+            
+           
+        }
+
+        .display-4 {
+            background-color: darkgoldenrod;
+            border-radius: 10px;
+            border: 4px solid black;
+
+        }
+
+        body {
+            background-image: url("assets/images/vietnamWarPic.jpg")
+        }
+
+        .card-body {
+            background-color: rgb(250, 235, 215);
+
+        }
+
+        #time-left {
+            color: rgb(0, 0, 0);
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-style:inherit;
+        }
+        
+    </style>
 </head>
+
 <body>
-    <h1>Press any key to get started!</h1>
-    <span id="results"></span>
-    <h2>Wins: <span id="wins"></span></h2>
-    <h2>Losses: <span id="losses"></span></h2>
-    <h3>Current word to guess: <span id="currentWordToGuess"></span></h3>
-    <h3>Number of guesses remaining: <span id="guessesRemaining"></span></h3>
-    <h3>Letters already guessed: <span id="lettersGuessed"></span></h3>
+
+    <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+            <p class="results"><span id="results"></span></p>
+            <h1 class="display-4">Vietnam War Hangman Guessing Game</h1>
+            <p class="lead">
+                <h3>You have 60 seconds to rack up as many WINS as you can.... GO!</h3>
+                <h3>Current word to guess: <span id="currentWordToGuess"></span></h3>
+            </p>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="card" style="width: 14rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Score Tracker</h5>
+
+                        <p class="card-text">
+                            <h2>Wins: <span id="wins"></span></h2>
+                            <h2>Losses: <span id="losses"></span></h2>
+                            <div id="time-left"></div>
+
+                        </p>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <span id="results"></span>
+
+
+
+            <div class="col-6">
+                <div class="card" style="width: 28rem; height: 180px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Game Info</h5>
+
+                        <p class="card-text">
+                            <h3>Number of guesses remaining: <span id="guessesRemaining"></span></h3>
+                            <h3>Letters already guessed: <span id="lettersGuessed"></span></h3>
+
+
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span id="results"></span>
+
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+
     <script src="assets/javascript/game.js"></script>
 </body>
+
 </html>
